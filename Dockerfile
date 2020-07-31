@@ -3,7 +3,7 @@ FROM python:3-slim-buster
 WORKDIR /code
 
 RUN apt-get update -y \
-    && apt-get install unzip nano curl wget -y
+    && apt-get install unzip nano curl wget -y --no-install-recommends apt-utils
 
 # nano syntax
 RUN curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
