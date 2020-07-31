@@ -1,6 +1,6 @@
 FROM python:3-slim-buster
 
-WORKDIR /station
+WORKDIR /code
 
 RUN apt-get update -y \
     && apt-get install unzip nano curl wget -y
@@ -9,7 +9,7 @@ RUN apt-get update -y \
 RUN curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 
 # python env and packages
-COPY requirements.txt .
+ADD . /code
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
